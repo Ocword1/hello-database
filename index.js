@@ -3,13 +3,7 @@
 // ahora tambien importamos mongoose
 const express  = require('express');
 const mongoose = require('mongoose');
-// agregamos esta linea
 const cors     = require('cors');
-
-const app = express()
-
-// y esta otra
-app.use(cors());
 
 // importamos el router que creamos para la api
 const router = require('./routes/api/user');
@@ -19,6 +13,8 @@ const port = process.env.PORT        || 3000;
 const db   = process.env.MONGODB_URI || 'mongodb://localhost/hellodb';
 
 const app = express();
+
+app.use(cors());
 
 // conexion a la base de datos
 mongoose.set('useUnifiedTopology', true);
